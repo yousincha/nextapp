@@ -1,35 +1,41 @@
 "use client";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import styles from "./Control.module.css";
 
 export function Control() {
   const params = useParams();
   const router = useRouter();
   const id = params.id;
   return (
-    <ul>
-      <li>
-        <Link href="/create">Create</Link>
+    <ul className={styles.controlList}>
+      <li className={styles.controlItem}>
+        <Link href="/create" className={styles.controlLink}>
+          Create
+        </Link>
       </li>
       {id ? (
         <>
-          <li>
-            <Link href={`/update/${id}`}>Update</Link>
+          <li className={styles.controlItem}>
+            <Link href={`/update/${id}`} className={styles.controlLink}>
+              Update
+            </Link>
           </li>
-          <li>
+          <li className={styles.controlItem}>
             <input
               type="button"
-              value="delete"
+              value="Delete"
+              className={styles.controlButton}
               onClick={() => {
                 const options = { method: "DELETE" };
-                fetch("http://localhost:9999/topics/" + id, options)
+                fetch(process.env.NEXT_PUBLIC_API_URL + "topics/" + id, options)
                   .then((resp) => resp.json())
                   .then((result) => {
                     router.push("/");
                     router.refresh();
                   });
               }}
-            ></input>
+            />
           </li>
         </>
       ) : null}

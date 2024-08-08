@@ -1,3 +1,5 @@
+import styles from "./Read.module.css";
+
 export default async function Read(props) {
   const resp = await fetch(
     process.env.NEXT_PUBLIC_API_URL + `topics/${props.params.id}`,
@@ -7,9 +9,9 @@ export default async function Read(props) {
   );
   const topic = await resp.json();
   return (
-    <>
-      <h2>{topic.title}</h2>
-      {topic.body}
-    </>
+    <div className={styles.container}>
+      <h2 className={styles.title}>{topic.title}</h2>
+      <div className={styles.body}>{topic.body}</div>
+    </div>
   );
 }

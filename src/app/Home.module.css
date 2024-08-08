@@ -1,0 +1,23 @@
+/* Home.module.css */
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.greeting {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.image {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

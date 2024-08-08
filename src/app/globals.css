@@ -1,3 +1,67 @@
-h1 a {
+/* globals.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 a {
   text-decoration: none;
+  color: #333;
+  font-size: 2.5em;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav ol {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Flexbox 사용 */
+  flex-wrap: wrap; /* 아이템이 한 줄에 모두 들어가지 않을 경우 줄바꿈 */
+  gap: 10px; /* 아이템 간의 간격 */
+}
+
+nav ol li {
+  margin-bottom: 10px;
+}
+
+nav ol li a {
+  text-decoration: none;
+  color: #0070f3;
+  font-size: 1.2em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+}
+
+nav ol li a:hover {
+  text-decoration: underline;
+  background-color: #c0c0c0;
+}
+
+main {
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #eaeaea;
 }

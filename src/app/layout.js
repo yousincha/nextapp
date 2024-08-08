@@ -15,20 +15,28 @@ export default async function RootLayout({ children }) {
   return (
     <html>
       <body>
-        <h1>
-          <Link href="/">WEB</Link>
-        </h1>
-        <ol>
-          {topics.map((topic) => {
-            return (
-              <li key={topic.id}>
-                <Link href={`/read/${topic.id}`}>{topic.title}</Link>
-              </li>
-            );
-          })}
-        </ol>
-        {children}
-        <Control />
+        <div className="container">
+          <header>
+            <h1>
+              <Link href="/">WEB</Link>
+            </h1>
+          </header>
+          <nav>
+            <ol>
+              {topics.map((topic) => {
+                return (
+                  <li key={topic.id}>
+                    <Link href={`/read/${topic.id}`}>{topic.title}</Link>
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
+          <main>{children}</main>
+          <footer>
+            <Control />
+          </footer>
+        </div>
       </body>
     </html>
   );

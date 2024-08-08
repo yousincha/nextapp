@@ -1,11 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import styles from "./Create.module.css";
 
 export default function Create() {
   const router = useRouter();
   return (
     <form
+      className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
 
@@ -27,13 +29,22 @@ export default function Create() {
       }}
     >
       <p>
-        <input type="text" name="title" placeholder="title" />
+        <input
+          className={styles.input}
+          type="text"
+          name="title"
+          placeholder="Title"
+        />
       </p>
       <p>
-        <textarea name="body" placeholder="body"></textarea>
+        <textarea
+          className={styles.textarea}
+          name="body"
+          placeholder="Body"
+        ></textarea>
       </p>
       <p>
-        <input type="submit" value="create" />
+        <input className={styles.submit} type="submit" value="Create" />
       </p>
     </form>
   );
