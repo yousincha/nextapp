@@ -19,7 +19,7 @@ export default async function RootLayout({ children }) {
         <div className="container">
           <header>
             <h1>
-              <Link href="/">WEB</Link>
+              <Link href="/">📖</Link>
             </h1>
           </header>
           <nav>
