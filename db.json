@@ -12,18 +12,23 @@
     },
     {
       "title": "아리",
-      "body": "만나서 반가워요!",
+      "body": "<p><strong>만나서 </strong><u>반가워요!!!<span class=\"ql-cursor\">﻿</span></u></p>",
       "id": 9
     },
     {
       "title": "자두",
-      "body": "자두 먹고싶다",
+      "body": "<p>안녕 자두야!</p>",
       "id": 10
     },
     {
       "title": "동동",
-      "body": "안녕 동동아!",
+      "body": "<ul><li>동동주</li><li>샴페인</li><li>막걸리</li></ul>",
       "id": 11
+    },
+    {
+      "title": "히히히",
+      "body": "<p>드디어! 금요일이다아ㅏ!! 🥰</p>",
+      "id": 12
     }
   ],
   "posts": [

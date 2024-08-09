@@ -8,10 +8,14 @@ export default async function Read(props) {
     }
   );
   const topic = await resp.json();
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>{topic.title}</h2>
-      <div className={styles.body}>{topic.body}</div>
+      <div
+        className={styles.body}
+        dangerouslySetInnerHTML={{ __html: topic.body }}
+      />
     </div>
   );
 }
