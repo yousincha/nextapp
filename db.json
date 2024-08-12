@@ -14,7 +14,7 @@
     },
     {
       "title": "동동",
-      "body": "<ul><li>동동주</li><li>샴페인</li><li>막걸리</li><li>와인</li></ul>",
+      "body": "<p>동동이가 가장 좋아하는 술은?</p><ol><li>맥주</li><li>샴페인</li><li>막걸리</li><li>와인</li></ol>",
       "id": 11,
       "likes": 3
     }
@@ -32,6 +32,11 @@
       "text": "정답! 막걸리",
       "topicId": "11",
       "id": 1
+    },
+    {
+      "text": "근데 왜 소주는 없엉?",
+      "topicId": "11",
+      "id": 2
     }
   ],
   "profile": {
