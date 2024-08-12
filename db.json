@@ -1,22 +1,10 @@
 {
   "topics": [
     {
-      "id": 1,
-      "title": "Html",
-      "body": "Html is ...",
-      "likes": 1
-    },
-    {
-      "id": 2,
-      "title": "css",
-      "body": "css is ...",
-      "likes": 0
-    },
-    {
       "title": "아리",
       "body": "<p><strong>만나서 </strong><u>반가워요!!!<span class=\"ql-cursor\">﻿</span></u></p>",
       "id": 9,
-      "likes": 0
+      "likes": 2
     },
     {
       "title": "자두",
@@ -26,7 +14,7 @@
     },
     {
       "title": "동동",
-      "body": "<ul><li>동동주</li><li>샴페인</li><li>막걸리</li></ul>",
+      "body": "<ul><li>동동주</li><li>샴페인</li><li>막걸리</li><li>와인</li></ul>",
       "id": 11,
       "likes": 3
     }
@@ -41,10 +29,9 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1,
-      "likes": 0
+      "text": "정답! 막걸리",
+      "topicId": "11",
+      "id": 1
     }
   ],
   "profile": {
