@@ -10,6 +10,7 @@
 프로젝트를 직접 확인하고 싶다면, 아래 링크를 통해 라이브 데모를 확인할 수 있습니다:
 
 ![Main 페이지](images/main.JPG)
+![Read 페이지](images/read.JPG)
 
 **[방명록 데모](https://nextapp-yougod.vercel.app/)**
 
