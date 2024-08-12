@@ -3,44 +3,52 @@
     {
       "id": 1,
       "title": "Html",
-      "body": "Html is ..."
+      "body": "Html is ...",
+      "likes": 1
     },
     {
       "id": 2,
       "title": "css",
-      "body": "css is ..."
+      "body": "css is ...",
+      "likes": 0
     },
     {
       "title": "아리",
       "body": "<p><strong>만나서 </strong><u>반가워요!!!<span class=\"ql-cursor\">﻿</span></u></p>",
-      "id": 9
+      "id": 9,
+      "likes": 0
     },
     {
       "title": "자두",
       "body": "<p>안녕 자두야!</p>",
-      "id": 10
+      "id": 10,
+      "likes": 0
     },
     {
       "title": "동동",
       "body": "<ul><li>동동주</li><li>샴페인</li><li>막걸리</li></ul>",
-      "id": 11
+      "id": 11,
+      "likes": 3
     }
   ],
   "posts": [
     {
       "id": 1,
       "title": "json-server",
-      "author": "typicode"
+      "author": "typicode",
+      "likes": 0
     }
   ],
   "comments": [
     {
       "id": 1,
       "body": "some comment",
-      "postId": 1
+      "postId": 1,
+      "likes": 0
     }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "typicode",
+    "likes": 0
   }
 }

@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
             <ol>
               {topics.map((topic) => (
                 <li key={topic.id}>
-                  <Link href={`/read/${topic.id}`}>{topic.title}</Link>
+                  <Link href={`/read/${topic.id}`}>{topic.title}</Link>{" "}
                 </li>
               ))}
             </ol>
