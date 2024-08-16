@@ -1,5 +1,3 @@
-/* Create.module.css */
-
 .form {
   max-width: 600px;
   margin: 0 auto;
@@ -9,14 +7,19 @@
   border-radius: 8px;
 }
 
-.input,
-.textarea {
-  width: 100%;
+.inputContainer {
+  display: flex;
+  align-items: center; /* 수직 정렬을 중앙으로 설정 */
+}
+
+.input {
+  width: calc(100% - 20px); /* 오른쪽 여백을 고려하여 너비 조정 */
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1em;
+  margin-right: 20px; /* 오른쪽 여백 추가 */
 }
 
 .textarea {
@@ -24,8 +27,14 @@
   resize: none;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
 .submit {
-  background-color: #0070f3;
+  background-color: #34a0ff;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -35,5 +44,5 @@
 }
 
 .submit:hover {
-  background-color: #005bb5;
+  background-color: #2e90e5;
 }

@@ -23,13 +23,12 @@ export default function Update() {
         .then((result) => {
           setTitle(result.title);
           setBody(result.body);
-          console.log("aaaaa" + result.body);
 
-          setLoading(false); // 데이터 로드 완료 후 로딩 상태 false
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
-          setLoading(false); // 에러 발생 시에도 로딩 상태 false
+          setLoading(false);
         });
     }
   }, [id]);
@@ -58,7 +57,7 @@ export default function Update() {
       .catch((error) => console.error("Error updating data:", error));
   };
 
-  if (loading) return <p>Loading...</p>; // 로딩 중일 때 표시
+  if (loading) return <p>Loading...</p>;
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -82,7 +81,7 @@ export default function Update() {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         <input className={styles.submit} type="submit" value="Update" />
       </div>
     </form>

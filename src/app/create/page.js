@@ -57,7 +57,7 @@ export default function Create() {
           placeholder="Body"
         />
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         <input className={styles.submit} type="submit" value="Create" />
       </div>
     </form>

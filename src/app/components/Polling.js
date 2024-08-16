@@ -5,6 +5,7 @@ const PollingComponent = () => {
   const [topics, setTopics] = useState([]);
   const previousTopics = useRef([]);
   const isFirstLoad = useRef(true); // 초기 로딩 여부를 확인하는 ref
+  const shouldReload = useRef(false); // 새로고침 여부를 확인하는 ref
 
   useEffect(() => {
     // 사용자에게 알림 권한 요청
@@ -35,6 +36,9 @@ const PollingComponent = () => {
             body: "새로운 일상이 추가되었습니다.",
             icon: "/bell.png",
           });
+
+          // 새로고침 플래그 설정
+          shouldReload.current = true;
         }
 
         // 토픽 상태 업데이트 및 이전 토픽 업데이트
@@ -43,6 +47,12 @@ const PollingComponent = () => {
 
         // 첫 로딩 후 상태 변경
         isFirstLoad.current = false;
+
+        // 새로고침 플래그가 설정된 경우
+        if (shouldReload.current) {
+          // 페이지 새로고침
+          window.location.reload();
+        }
       } catch (error) {
         console.error("Polling Error:", error);
       }
