@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import styles from "./Control.module.css";
 
 export function Control() {
@@ -10,21 +11,21 @@ export function Control() {
   return (
     <ul className={styles.controlList}>
       <li className={styles.controlItem}>
-        <Link href="/create" className={styles.controlLink}>
-          Create
+        <Link href="/create" className={styles.createButton}>
+          <Image src="/add.png" alt="Create" width={40} height={40} />
         </Link>
       </li>
       {id ? (
         <>
           <li className={styles.controlItem}>
-            <Link href={`/update/${id}`} className={styles.controlLink}>
-              Update
+            <Link href={`/update/${id}`} className={styles.updateButton}>
+              <Image src="/reload.png" alt="Update" width={40} height={40} />
             </Link>
           </li>
           <li className={styles.controlItem}>
             <input
               type="button"
-              value="Delete"
+              value=""
               className={styles.controlButton}
               onClick={() => {
                 const options = { method: "DELETE" };
@@ -36,6 +37,7 @@ export function Control() {
                   });
               }}
             />
+            <Image src="/delete.png" alt="Delete" width={40} height={40} />
           </li>
         </>
       ) : null}

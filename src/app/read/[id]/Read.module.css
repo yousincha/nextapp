@@ -93,7 +93,7 @@
 
 .commentButton {
   padding: 10px 20px;
-  background-color: #0070f3;
+  background-color: #7b7bf9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -105,7 +105,7 @@
 }
 
 .commentButton:hover {
-  background-color: #005bb5;
+  background-color: #7777ee;
 }
 
 .commentButton:active {

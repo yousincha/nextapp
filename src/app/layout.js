@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "./globals.css";
 import { Control } from "./Control";
+import Polling from "./components/Polling"; // 대소문자 정확히 맞춤
 
 export const metadata = {
   title: "Web tutorials",
@@ -34,6 +35,7 @@ export default async function RootLayout({ children }) {
           <main>{children}</main>
           <footer>
             <Control />
+            <Polling />
           </footer>
         </div>
       </body>

@@ -22,6 +22,11 @@
       "title": "포도",
       "body": "<p>포도가 먹고시포동</p>",
       "id": 12
+    },
+    {
+      "title": "안녕",
+      "body": "<p><strong>테스트 </strong>지롱!</p>",
+      "id": 13
     }
   ],
   "posts": [
