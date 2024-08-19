@@ -32,6 +32,15 @@ export default function Create() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!title.trim()) {
+      alert("제목을 입력해주세요.");
+      return;
+    }
+
+    if (!body.trim()) {
+      alert("내용을 입력해주세요.");
+      return;
+    }
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
