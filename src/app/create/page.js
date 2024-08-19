@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css"; // Import Quill styles
+import "react-quill/dist/quill.snow.css";
 import styles from "./Create.module.css";
 
-// Dynamically import ReactQuill to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function Create() {
@@ -30,11 +29,22 @@ export default function Create() {
     fetch(process.env.NEXT_PUBLIC_API_URL + "topics", options)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         const lastid = result.id;
         router.push(`/read/${lastid}`);
         router.refresh();
       });
+  };
+
+  // Quill 모듈 설정
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"], // 이미지 버튼 추가
+      ["clean"],
+    ],
   };
 
   return (
@@ -44,7 +54,7 @@ export default function Create() {
           className={styles.input}
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder="제목"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -54,7 +64,8 @@ export default function Create() {
           className={styles.quill}
           value={body}
           onChange={handleChange}
-          placeholder="Body"
+          placeholder="내용을 작성해보세요"
+          modules={modules} // 모듈 추가
         />
       </div>
       <div className={styles.buttonContainer}>

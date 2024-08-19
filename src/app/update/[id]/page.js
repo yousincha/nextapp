@@ -1,17 +1,28 @@
 "use client";
-
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css"; // Import Quill styles
+import "react-quill/dist/quill.snow.css";
 import styles from "./Update.module.css";
+import ReactQuill, { Quill } from "react-quill";
+import ImageResize from "quill-image-resize-module-react";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
+if (typeof window !== "undefined" && Quill) {
+  try {
+    Quill.register("modules/imageResize", ImageResize);
+  } catch (error) {
+    console.error("Error registering ImageResize module:", error);
+  }
+}
+
+// 동적으로 ReactQuill 로드
+const DynamicReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function Update() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const params = useParams();
   const id = params.id;
@@ -23,7 +34,6 @@ export default function Update() {
         .then((result) => {
           setTitle(result.title);
           setBody(result.body);
-
           setLoading(false);
         })
         .catch((error) => {
@@ -32,6 +42,13 @@ export default function Update() {
         });
     }
   }, [id]);
+
+  useEffect(() => {
+    const images = document.querySelectorAll(".ql-editor img");
+    images.forEach((img) => {
+      img.classList.add("resizable-img");
+    });
+  }, [body]);
 
   const handleChange = (value) => {
     setBody(value);
@@ -49,12 +66,26 @@ export default function Update() {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}topics/${id}`, options)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         const lastid = result.id;
         router.push(`/read/${lastid}`);
         router.refresh();
       })
       .catch((error) => console.error("Error updating data:", error));
+  };
+
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+      ["clean"],
+    ],
+    imageResize: {
+      // ImageResize 모듈을 사용하여 이미지 크기 조절 기능 활성화
+      modules: ["Resize", "DisplaySize", "Toolbar"],
+    },
   };
 
   if (loading) return <p>Loading...</p>;
@@ -72,13 +103,12 @@ export default function Update() {
         />
       </div>
       <div>
-        <ReactQuill
+        <DynamicReactQuill
           className={styles.q}
-          type="text"
-          name="body"
-          placeholder="Body"
           value={body}
           onChange={handleChange}
+          placeholder="Body"
+          modules={modules}
         />
       </div>
       <div className={styles.buttonContainer}>

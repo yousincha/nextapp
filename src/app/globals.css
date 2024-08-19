@@ -1,5 +1,3 @@
-/* globals.css */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -33,9 +31,9 @@ nav {
 nav ol {
   list-style: none;
   padding: 0;
-  display: flex; /* Flexbox 사용 */
-  flex-wrap: wrap; /* 아이템이 한 줄에 모두 들어가지 않을 경우 줄바꿈 */
-  gap: 10px; /* 아이템 간의 간격 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 nav ol li {
@@ -44,16 +42,17 @@ nav ol li {
 
 nav ol li a {
   text-decoration: none;
-  color: #0070f3;
-  font-size: 1.2em;
+  color: #2500dd;
+  font-size: 1em;
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: #e0e0e0;
+  border: 2px dashed #c5c5c5;
+  display: block;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 nav ol li a:hover {
-  text-decoration: underline;
-  background-color: #c0c0c0;
+  border-color: #2500dd;
 }
 
 main {

@@ -28,7 +28,6 @@ export default function Read(props) {
     fetchTopic();
     const interval = setInterval(fetchTopic, 10000);
 
-    // 컴포넌트가 언마운트될 때 인터벌 정리
     return () => clearInterval(interval);
   }, [props.params.id]);
 
