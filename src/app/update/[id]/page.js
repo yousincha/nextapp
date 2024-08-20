@@ -7,15 +7,6 @@ import styles from "./Update.module.css";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 
-// ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
-if (typeof window !== "undefined" && Quill) {
-  try {
-    Quill.register("modules/imageResize", ImageResize);
-  } catch (error) {
-    console.error("Error registering ImageResize module:", error);
-  }
-}
-
 // 동적으로 ReactQuill 로드
 const DynamicReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -87,7 +78,16 @@ export default function Update() {
       modules: ["Resize", "DisplaySize", "Toolbar"],
     },
   };
-
+  useEffect(() => {
+    // ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
+    if (typeof window !== "undefined" && Quill) {
+      try {
+        Quill.register("modules/imageResize", ImageResize);
+      } catch (error) {
+        console.error("Error registering ImageResize module:", error);
+      }
+    }
+  }, []);
   if (loading) return <p>Loading...</p>;
 
   return (

@@ -1,21 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import styles from "./Create.module.css";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
-
-// ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
-if (typeof window !== "undefined" && Quill) {
-  try {
-    Quill.register("modules/imageResize", ImageResize);
-  } catch (error) {
-    console.error("Error registering ImageResize module:", error);
-  }
-}
 
 // 동적으로 ReactQuill 로드
 const DynamicReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -71,7 +62,16 @@ export default function Create() {
       modules: ["Resize", "DisplaySize", "Toolbar"],
     },
   };
-
+  useEffect(() => {
+    // ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
+    if (typeof window !== "undefined" && Quill) {
+      try {
+        Quill.register("modules/imageResize", ImageResize);
+      } catch (error) {
+        console.error("Error registering ImageResize module:", error);
+      }
+    }
+  }, []);
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div>
