@@ -85,7 +85,7 @@ export default function Create() {
         />
       </div>
       <div>
-        <ReactQuill
+        <DynamicReactQuill
           className={styles.quill}
           value={body}
           onChange={handleChange}
