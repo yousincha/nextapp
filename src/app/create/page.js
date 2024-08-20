@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import styles from "./Create.module.css";
-// import Quill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 
 // ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
