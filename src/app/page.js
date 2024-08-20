@@ -11,8 +11,8 @@ export default function Home() {
         className={styles.image}
         src="/profile.jpg"
         alt="Profile Image"
-        width={80}
-        height={80}
+        width={130}
+        height={130}
       />
     </div>
   );

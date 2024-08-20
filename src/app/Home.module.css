@@ -1,8 +1,7 @@
-/* Home.module.css */
-
 .container {
   text-align: center;
   padding: 20px;
+  align-items: center; /* 수평 중앙 정렬 */
 }
 
 .title {

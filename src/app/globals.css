@@ -57,6 +57,44 @@ nav ol li a:hover {
 
 main {
   margin-bottom: 20px;
+  min-height: 40vh;
+}
+main {
+  margin-bottom: 20px;
+  min-height: 40vh; /* 기본값 */
+}
+
+main {
+  margin-bottom: 20px;
+  min-height: 40vh; /* 기본값 */
+}
+
+/* 작은 화면 (예: 모바일) */
+@media (max-width: 600px) {
+  main {
+    min-height: 50vh; /* 작은 화면일 때 더 높은 최소 높이 설정 */
+  }
+}
+
+/* 중간 크기 화면 (예: 태블릿) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  main {
+    min-height: 50vh; /* 중간 크기 화면에서의 최소 높이 */
+  }
+}
+
+/* 큰 화면 (예: 데스크탑) */
+@media (min-width: 1025px) and (max-width: 1800px) {
+  main {
+    min-height: 45vh; /* 큰 화면일 때의 최소 높이 */
+  }
+}
+
+/* 더 큰 화면 (예: 대형 모니터) */
+@media (min-width: 1801px) {
+  main {
+    min-height: 55vh; /* 아주 큰 화면에서의 최소 높이 */
+  }
 }
 
 footer {
