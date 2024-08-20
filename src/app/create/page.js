@@ -63,7 +63,7 @@ export default function Create() {
       [{ size: [] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image"], // 이미지 버튼 추가
+      ["link", "image", "video"], // 이미지 버튼 추가
       ["clean"],
     ],
     imageResize: {

@@ -79,7 +79,7 @@ export default function Update() {
       [{ size: [] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image"],
+      ["link", "image", "video"],
       ["clean"],
     ],
     imageResize: {

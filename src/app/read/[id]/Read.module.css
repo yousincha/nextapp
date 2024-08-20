@@ -19,7 +19,10 @@
   color: #555;
   line-height: 1.6;
 }
-
+.body img {
+  max-width: 100%;
+  height: auto;
+}
 .likeContainer {
   margin-top: 20px;
   display: flex;
