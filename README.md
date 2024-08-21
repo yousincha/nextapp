@@ -7,10 +7,12 @@
 
 ## 방명록 데모
 
-아래 링크를 통해 프로젝트를 직접 확인할 수 있습니다.
+[방명록 데모](https://nextapp-yougod.vercel.app/)를 통해 프로젝트를 직접 확인할 수 있습니다.
+
+
 ![방명록 프로젝트 미리보기](./public/preview.gif)
 
-**[방명록 데모](https://nextapp-yougod.vercel.app/)**
+
 
 ## 소개
 
