@@ -46,3 +46,7 @@
 .submit:hover {
   background-color: #2e90e5;
 }
+.quill img {
+  max-width: 100%;
+  height: auto;
+}

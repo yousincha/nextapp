@@ -1,20 +1,43 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import styles from "./Create.module.css";
-import ReactQuill, { Quill } from "react-quill";
-import ImageResize from "quill-image-resize-module-react";
 
-// 동적으로 ReactQuill 로드
-const DynamicReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// SSR을 비활성화한 상태에서 동적으로 ReactQuill을 로드합니다.
+const DynamicReactQuill = dynamic(() => import("react-quill"), {
+  ssr: false,
+});
 
 export default function Create() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const router = useRouter();
+
+  // 클라이언트에서만 Quill과 ImageResize 모듈을 등록합니다.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const Quill = require("react-quill").Quill;
+      const ImageResize = require("quill-image-resize-module-react").default;
+      Quill.register("modules/imageResize", ImageResize);
+    }
+  }, []);
+
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image", "video"], // 이미지 버튼 추가
+      ["clean"],
+    ],
+    imageResize: {
+      modules: ["Resize", "DisplaySize", "Toolbar"],
+    },
+  };
 
   const handleChange = (value) => {
     setBody(value);
@@ -32,6 +55,7 @@ export default function Create() {
       alert("내용을 입력해주세요.");
       return;
     }
+
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,31 +71,6 @@ export default function Create() {
       });
   };
 
-  // Quill 모듈 설정
-  const modules = {
-    toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
-      [{ size: [] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image", "video"], // 이미지 버튼 추가
-      ["clean"],
-    ],
-    imageResize: {
-      // ImageResize 모듈을 사용하여 이미지 크기 조절 기능 활성화
-      modules: ["Resize", "DisplaySize", "Toolbar"],
-    },
-  };
-  useEffect(() => {
-    // ImageResize 모듈 등록 (클라이언트 사이드에서만 실행)
-    if (typeof window !== "undefined" && Quill) {
-      try {
-        Quill.register("modules/imageResize", ImageResize);
-      } catch (error) {
-        console.error("Error registering ImageResize module:", error);
-      }
-    }
-  }, []);
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div>
@@ -85,6 +84,7 @@ export default function Create() {
         />
       </div>
       <div>
+        {/* DynamicReactQuill은 클라이언트에서만 로드됩니다. */}
         <DynamicReactQuill
           className={styles.quill}
           value={body}
