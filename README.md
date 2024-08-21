@@ -7,13 +7,8 @@
 
 ## 방명록 데모
 
-프로젝트를 직접 확인하고 싶다면, 아래 링크를 통해 라이브 데모를 확인할 수 있습니다:
-
-### MAIN 페이지
-![Main 페이지](images/main.JPG)
-
-### READ 페이지
-![Read 페이지](images/read.JPG)
+아래 링크를 통해 프로젝트를 직접 확인할 수 있습니다.
+![방명록 프로젝트 미리보기](./public/preview.gif)
 
 **[방명록 데모](https://nextapp-yougod.vercel.app/)**
 
