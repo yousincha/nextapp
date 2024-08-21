@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./globals.css";
 import { Control } from "./Control";
-import Polling from "./components/Polling"; // 대소문자 정확히 맞춤
+import Polling from "./components/Polling";
 
 export const metadata = {
   title: "Web tutorials",
